@@ -16,17 +16,15 @@ const LoginForm = ({ onLogin, onLogout, isLoggedIn }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ajoutez votre logique d'authentification ici en utilisant formData
-    onLogin(formData.username); // Appel de la fonction de connexion avec le nom d'utilisateur
+    onLogin(formData.username);
   };
 
   const handleLogout = () => {
-    // Ajoutez votre logique de déconnexion ici
     onLogout();
   };
 
   return (
-    <div>
+    <div className="login-form">
       {isLoggedIn ? (
         <div>
           <p>Bienvenue, {formData.username}!</p>
@@ -74,18 +72,16 @@ class App extends React.Component {
   }
 
   handleLogin = (user) => {
-    // Ajoutez votre logique d'authentification ici
     this.setState({ username: user, isLoggedIn: true });
   };
 
   handleLogout = () => {
-    // Ajoutez votre logique de déconnexion ici
     this.setState({ username: '', isLoggedIn: false });
   };
 
   render() {
     return (
-      <div>
+      <div className="app-container">
         <h1>Votre application</h1>
         <LoginForm
           onLogin={this.handleLogin}
